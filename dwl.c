@@ -2343,10 +2343,17 @@ setcursor(struct wl_listener *listener, void *data)
 	 * use the provided surface as the cursor image. It will set the
 	 * hardware cursor on the output that it's currently on and continue to
 	 * do so as the cursor moves between outputs. */
-	if (event->seat_client == seat->pointer_state.focused_client)
-		wlr_cursor_set_surface(cursor, event->surface,
-				event->hotspot_x, event->hotspot_y);
-}
+	if (event->seat_client == seat->pointer_state.focused_client) {
+		last_cursor.shape = 0;
+		last_cursor.surface = event->surface;
+		last_cursor.hotspot_x = event->hotspot_x;
+		last_cursor.hotspot_y = event->hotspot_y;
+
+		if (!cursor_hidden)
+			wlr_cursor_set_surface(cursor, event->surface,
+					event->hotspot_x, event->hotspot_y);
+	}
+ }
 
 void
 setcursorshape(struct wl_listener *listener, void *data)
@@ -2357,9 +2364,14 @@ setcursorshape(struct wl_listener *listener, void *data)
 	/* This can be sent by any client, so we check to make sure this one is
 	 * actually has pointer focus first. If so, we can tell the cursor to
 	 * use the provided cursor shape. */
-	if (event->seat_client == seat->pointer_state.focused_client)
-		wlr_cursor_set_xcursor(cursor, cursor_mgr,
-				wlr_cursor_shape_v1_name(event->shape));
+	if (event->seat_client == seat->pointer_state.focused_client) {
+		last_cursor.shape = event->shape;
+		last_cursor.surface = NULL;
+
+		if (!cursor_hidden)
+			wlr_cursor_set_xcursor(cursor, cursor_mgr,
+					wlr_cursor_shape_v1_name(event->shape));
+	}
 }
 
 void
