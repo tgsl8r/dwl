@@ -58,15 +58,16 @@ static const struct xkb_rule_names xkb_rules = {
 	/* example:
 	.options = "ctrl:nocaps",
 	*/
-	.options = NULL,
+	.layout = "us",
+	.options = "caps:escape_shifted_caps,altwin:prtsc_rwin,compose:ins",
 };
 
 static const int repeat_rate = 25;
 static const int repeat_delay = 600;
 
 /* Trackpad */
-static const int tap_to_click = 1;
-static const int tap_and_drag = 1;
+static const int tap_to_click = 0;
+static const int tap_and_drag = 0;
 static const int drag_lock = 1;
 static const int natural_scrolling = 0;
 static const int disable_while_typing = 1;
@@ -85,7 +86,7 @@ LIBINPUT_CONFIG_CLICK_METHOD_NONE
 LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_AREAS
 LIBINPUT_CONFIG_CLICK_METHOD_CLICKFINGER
 */
-static const enum libinput_config_click_method click_method = LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_AREAS;
+static const enum libinput_config_click_method click_method = LIBINPUT_CONFIG_CLICK_METHOD_CLICKFINGER;
 
 /* You can choose between:
 LIBINPUT_CONFIG_SEND_EVENTS_ENABLED
