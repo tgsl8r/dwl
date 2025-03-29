@@ -1,0 +1,5 @@
+[wrap-git]
+url = https://gitlab.freedesktop.org/wlroots/wlroots.git
+revision = master
+depth = 1
+clone-recursive = true
