@@ -23,6 +23,7 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
+        "pipewire", NULL,
         "yambar", NULL,
         NULL /* terminate */
 };
