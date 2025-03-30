@@ -129,12 +129,17 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[] = { "foot", NULL };
+static const char *termcmd[]     = { "foot", NULL };
 static const char *launchercmd[] = { "fuzzel", NULL };
-static const char *browsercmd[] = { "qutebrowser", NULL };
-static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
-static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
-static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
+static const char *browsercmd[]  = { "qutebrowser", NULL };
+static const char *upvol[]       = { "/usr/local/bin/tctl", "audio", "up", NULL };
+static const char *downvol[]     = { "/usr/local/bin/tctl", "audio", "down", NULL };
+static const char *mutevol[]     = { "/usr/local/bin/tctl", "audio", "mute", NULL };
+static const char *mutemic[]     = { "/usr/local/bin/tctl", "audio", "micmute", NULL };
+static const char *brightup[]    = { "/usr/local/bin/tctl", "brightness", "up", NULL };
+static const char *brightdown[]  = { "/usr/local/bin/tctl", "brightness", "down", NULL };
+static const char *kbup[]        = { "/usr/local/bin/tctl", "brightness", "keyup", NULL };
+static const char *kbdown[]      = { "/usr/local/bin/tctl", "brightness", "keydown", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -175,9 +180,14 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          quit,           {0} },
 
   /* Media keys */
-  { 0,                         XKB_KEY_XF86AudioRaiseVolume, spawn, {.v = upvol   } },
-  { 0,                         XKB_KEY_XF86AudioLowerVolume, spawn, {.v = downvol } },
-  { 0,                         XKB_KEY_XF86AudioMute,        spawn, {.v = mutevol } },
+  { 0,                         XKB_KEY_XF86AudioRaiseVolume,  spawn, {.v = upvol   } },
+  { 0,                         XKB_KEY_XF86AudioLowerVolume,  spawn, {.v = downvol } },
+  { 0,                         XKB_KEY_XF86AudioMute,         spawn, {.v = mutevol } },
+  { 0,                         XKB_KEY_XF86AudioMicMute,      spawn, {.v = mutemic } },
+  { 0,                         XKB_KEY_XF86MonBrightnessUp,   spawn, {.v = brightup   } },
+  { 0,                         XKB_KEY_XF86MonBrightnessDown, spawn, {.v = brightdown } },
+  { WLR_MODIFIER_SHIFT,        XKB_KEY_XF86MonBrightnessUp,   spawn, {.v = kbup   } },
+  { WLR_MODIFIER_SHIFT,        XKB_KEY_XF86MonBrightnessDown, spawn, {.v = kbdown } },
 
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
 	{ WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT,XKB_KEY_Terminate_Server, quit, {0} },
