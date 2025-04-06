@@ -138,7 +138,6 @@ static const char *kbdown[]      = { "/usr/local/bin/tctl", "brightness", "keydo
 
 static const Key keys[] = {
 	/* modifier                  key                 function        argument */
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          quit,           {0} },
   /* apps */
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_q,          spawn,          {.v = launchercmd} },
