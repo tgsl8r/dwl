@@ -127,6 +127,14 @@ static const char *termcmd[]     = { "foot", NULL };
 static const char *launchercmd[] = { "fuzzel", NULL };
 static const char *browsercmd[]  = { "qutebrowser", NULL };
 static const char *explorercmd[]  = { "foot", "-D", "~", "yazi", NULL };
+
+/* Menus */
+static const char *menusys[]  = { "menusys", NULL };
+static const char *menunm[]  = { "menunm", NULL };
+static const char *menubt[]  = { "menubt", NULL };
+static const char *menushot[]  = { "menushot", NULL };
+
+/* System keys */
 static const char *upvol[]       = { "/usr/local/bin/tctl", "audio", "up", NULL };
 static const char *downvol[]     = { "/usr/local/bin/tctl", "audio", "down", NULL };
 static const char *mutevol[]     = { "/usr/local/bin/tctl", "audio", "mute", NULL };
@@ -143,6 +151,11 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_q,          spawn,          {.v = launchercmd} },
 	{ MODKEY,                    XKB_KEY_w,          spawn,          {.v = browsercmd} },
 	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = explorercmd} },
+  /* menus */
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          spawn,          {.v = menusys} },
+  { MODKEY,                    XKB_KEY_n,          spawn,          {.v = menunm} },
+	{ MODKEY,                    XKB_KEY_b,          spawn,          {.v = menubt} },
+	{ MODKEY,                    XKB_KEY_s,          spawn,          {.v = menushot} },
   /* stack */
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
