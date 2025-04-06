@@ -126,7 +126,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 static const char *termcmd[]     = { "foot", NULL };
 static const char *launchercmd[] = { "fuzzel", NULL };
 static const char *browsercmd[]  = { "qutebrowser", NULL };
-static const char *screenshot[]  = { "menushot", NULL };
+static const char *explorercmd[]  = { "foot", "-D", "~", "yazi", NULL };
 static const char *upvol[]       = { "/usr/local/bin/tctl", "audio", "up", NULL };
 static const char *downvol[]     = { "/usr/local/bin/tctl", "audio", "down", NULL };
 static const char *mutevol[]     = { "/usr/local/bin/tctl", "audio", "mute", NULL };
@@ -142,7 +142,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_q,          spawn,          {.v = launchercmd} },
 	{ MODKEY,                    XKB_KEY_w,          spawn,          {.v = browsercmd} },
-	{ MODKEY,                    XKB_KEY_s,          spawn,          {.v = screenshot} },
+	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = explorercmd} },
   /* stack */
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
