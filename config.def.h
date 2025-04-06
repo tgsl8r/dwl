@@ -133,6 +133,7 @@ static const char *menusys[]  = { "menusys", NULL };
 static const char *menunm[]  = { "menunm", NULL };
 static const char *menubt[]  = { "menubt", NULL };
 static const char *menushot[]  = { "menushot", NULL };
+static const char *menuclip[]  = { "menuclip", NULL };
 
 /* System keys */
 static const char *upvol[]       = { "/usr/local/bin/tctl", "audio", "up", NULL };
@@ -146,6 +147,7 @@ static const char *kbdown[]      = { "/usr/local/bin/tctl", "brightness", "keydo
 
 static const Key keys[] = {
 	/* modifier                  key                 function        argument */
+	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_Escape,     quit,           {0} },
   /* apps */
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_q,          spawn,          {.v = launchercmd} },
@@ -156,6 +158,7 @@ static const Key keys[] = {
   { MODKEY,                    XKB_KEY_n,          spawn,          {.v = menunm} },
 	{ MODKEY,                    XKB_KEY_b,          spawn,          {.v = menubt} },
 	{ MODKEY,                    XKB_KEY_s,          spawn,          {.v = menushot} },
+	{ MODKEY,                    XKB_KEY_v,          spawn,          {.v = menuclip} },
   /* stack */
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
@@ -167,7 +170,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_z,          zoom,           {0} },
 	{ MODKEY,                    XKB_KEY_x,          togglefullscreen, {0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_X,          togglefloating, {0} },
-	{ MODKEY,                    XKB_KEY_c,          killclient,     {0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_C,          killclient,     {0} },
   /* tags */
 	{ MODKEY,                    XKB_KEY_Tab,        view,           {0} },
 	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
