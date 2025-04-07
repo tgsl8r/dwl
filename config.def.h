@@ -127,7 +127,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 static const char *termcmd[]     = { "foot", NULL };
 static const char *launchercmd[] = { "fuzzel", NULL };
 static const char *browsercmd[]  = { "qutebrowser", NULL };
-static const char *explorercmd[]  = { "foot", "-D", "~", "yazi", NULL };
+static const char *explorercmd[]  = { "foot", "yazi", NULL };
 
 /* Menus */
 static const char *menusys[]  = { "menusys", NULL };
