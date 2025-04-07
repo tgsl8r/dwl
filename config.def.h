@@ -204,6 +204,13 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_period,     focusmon,       {.i = WLR_DIRECTION_RIGHT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,         {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,         {.i = WLR_DIRECTION_RIGHT} },
+  /* gaps */
+  { MODKEY,                    XKB_KEY_bracketleft, incgaps,       {.i = -1 } },
+  { MODKEY,                    XKB_KEY_bracketright,incgaps,       {.i = +1 } },
+  { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_braceleft,   incigaps,      {.i = -1 } },
+  { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_braceright,  incigaps,      {.i = +1 } },
+  { MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_bracketleft, incogaps,      {.i = -1 } },
+  { MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_bracketright,incogaps,      {.i = +1 } },
 
   /* Media keys */
   { 0,                         XKB_KEY_XF86AudioRaiseVolume,  spawn, {.v = upvol   } },
