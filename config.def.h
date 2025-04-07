@@ -151,11 +151,11 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_Escape,     quit,           {0} },
   /* apps */
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
-	{ MODKEY,                    XKB_KEY_q,          spawn,          {.v = launchercmd} },
 	{ MODKEY,                    XKB_KEY_w,          spawn,          {.v = browsercmd} },
 	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = explorercmd} },
   /* menus */
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          spawn,          {.v = menusys} },
+	{ MODKEY,                    XKB_KEY_a,          spawn,          {.v = launchercmd} },
+	{ MODKEY,                    XKB_KEY_Escape,     spawn,          {.v = menusys} },
   { MODKEY,                    XKB_KEY_n,          spawn,          {.v = menunm} },
 	{ MODKEY,                    XKB_KEY_b,          spawn,          {.v = menubt} },
 	{ MODKEY,                    XKB_KEY_s,          spawn,          {.v = menushot} },
@@ -169,13 +169,11 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_o,          incnmaster,     {.i = -1} },
   /* client */
 	{ MODKEY,                    XKB_KEY_z,          zoom,           {0} },
-	{ MODKEY,                    XKB_KEY_x,          togglefullscreen, {0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_X,          togglefloating, {0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_C,          killclient,     {0} },
+	{ MODKEY,                    XKB_KEY_x,          togglefloating, {0} },
+	{ MODKEY,                    XKB_KEY_c,          togglefullscreen , {0} },
+	{ MODKEY,                    XKB_KEY_q,          killclient,     {0} },
   /* tags */
 	{ MODKEY,                    XKB_KEY_Tab,        view,           {0} },
-	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
 	TAGKEYS(          XKB_KEY_2, XKB_KEY_at,                         1),
 	TAGKEYS(          XKB_KEY_3, XKB_KEY_numbersign,                 2),
@@ -185,6 +183,8 @@ static const Key keys[] = {
 	TAGKEYS(          XKB_KEY_7, XKB_KEY_ampersand,                  6),
 	TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                   7),
 	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                  8),
+	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
   /* layouts */
 	{ MODKEY,                    XKB_KEY_t,          setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                    XKB_KEY_f,          setlayout,      {.v = &layouts[1]} },
