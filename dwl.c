@@ -2760,6 +2760,9 @@ setup(void)
 		die("couldn't create renderer");
 	LISTEN_STATIC(&drw->events.lost, gpureset);
 
+	hide_source = wl_event_loop_add_timer(wl_display_get_event_loop(dpy),
+			hidecursor, cursor);
+
 	/* Create shm, drm and linux_dmabuf interfaces by ourselves.
 	 * The simplest way is call:
 	 *      wlr_renderer_init_wl_display(drw);
