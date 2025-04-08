@@ -9,6 +9,7 @@ static const unsigned int gappih           = 10; /* horiz inner gap between wind
 static const unsigned int gappiv           = 10; /* vert inner gap between windows */
 static const unsigned int gappoh           = 10; /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov           = 10; /* vert outer gap between windows and screen edge */
+static const int cursor_timeout            = 5; /* seconds of mouse inactivity before hiding cursor */
 
 /* colours */
 #define COLOR(hex)    { ((hex >> 24) & 0xFF) / 255.0f, \
