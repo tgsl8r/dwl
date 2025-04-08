@@ -174,6 +174,8 @@ static const Key keys[] = {
   /* stack */
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_J,          pushdown,       {0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,          pushup,         {0} },
 	{ MODKEY,                    XKB_KEY_h,          setmfact,       {.f = -0.05f} },
 	{ MODKEY,                    XKB_KEY_l,          setmfact,       {.f = +0.05f} },
 	{ MODKEY,                    XKB_KEY_i,          incnmaster,     {.i = +1} },
@@ -181,7 +183,7 @@ static const Key keys[] = {
   /* client */
 	{ MODKEY,                    XKB_KEY_z,          zoom,           {0} },
 	{ MODKEY,                    XKB_KEY_x,          togglefloating, {0} },
-	{ MODKEY,                    XKB_KEY_c,          togglefullscreen , {0} },
+	{ MODKEY,                    XKB_KEY_c,          togglefullscreen,{0} },
 	{ MODKEY,                    XKB_KEY_q,          killclient,     {0} },
   /* tags */
 	{ MODKEY,                    XKB_KEY_Tab,        view,           {0} },
