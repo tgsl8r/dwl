@@ -51,9 +51,9 @@ static const Rule rules[] = {
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },
-	{ "[%]",      NULL },    /* no layout function means floating behavior */
-	{ "[+]",      monocle },
 	{ "=M=",      centeredmaster },
+	{ "[+]",      monocle },
+	{ "[%]",      NULL },    /* no layout function means floating behavior */
 };
 
 /* monitors */
@@ -138,25 +138,26 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 /* commands */
 static const char *termcmd[]     = { "foot", NULL };
 static const char *launchercmd[] = { "fuzzel", NULL };
+static const char *pathcmd[]     = { "fuzzel", "--list-executables-in-path", NULL };
 static const char *browsercmd[]  = { "qutebrowser", NULL };
-static const char *explorercmd[]  = { "foot", "yazi", NULL };
+static const char *explorercmd[] = { "foot", "yazi", NULL };
 
 /* Menus */
 static const char *menusys[]  = { "menusys", NULL };
-static const char *menunm[]  = { "menunm", NULL };
-static const char *menubt[]  = { "menubt", NULL };
-static const char *menushot[]  = { "menushot", NULL };
-static const char *menuclip[]  = { "menuclip", NULL };
+static const char *menunm[]   = { "menunm", NULL };
+static const char *menubt[]   = { "menubt", NULL };
+static const char *menushot[] = { "menushot", NULL };
+static const char *menuclip[] = { "menuclip", NULL };
 
 /* System keys */
-static const char *upvol[]       = { "/usr/local/bin/tctl", "audio", "up", NULL };
-static const char *downvol[]     = { "/usr/local/bin/tctl", "audio", "down", NULL };
-static const char *mutevol[]     = { "/usr/local/bin/tctl", "audio", "mute", NULL };
-static const char *mutemic[]     = { "/usr/local/bin/tctl", "audio", "micmute", NULL };
-static const char *brightup[]    = { "/usr/local/bin/tctl", "brightness", "up", NULL };
-static const char *brightdown[]  = { "/usr/local/bin/tctl", "brightness", "down", NULL };
-static const char *kbup[]        = { "/usr/local/bin/tctl", "brightness", "keyup", NULL };
-static const char *kbdown[]      = { "/usr/local/bin/tctl", "brightness", "keydown", NULL };
+static const char *upvol[]      = { "/usr/local/bin/tctl", "audio", "up", NULL };
+static const char *downvol[]    = { "/usr/local/bin/tctl", "audio", "down", NULL };
+static const char *mutevol[]    = { "/usr/local/bin/tctl", "audio", "mute", NULL };
+static const char *mutemic[]    = { "/usr/local/bin/tctl", "audio", "micmute", NULL };
+static const char *brightup[]   = { "/usr/local/bin/tctl", "brightness", "up", NULL };
+static const char *brightdown[] = { "/usr/local/bin/tctl", "brightness", "down", NULL };
+static const char *kbup[]       = { "/usr/local/bin/tctl", "brightness", "keyup", NULL };
+static const char *kbdown[]     = { "/usr/local/bin/tctl", "brightness", "keydown", NULL };
 
 static const Key keys[] = {
 	/* modifier                  key                 function        argument */
@@ -167,6 +168,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = explorercmd} },
   /* menus */
 	{ MODKEY,                    XKB_KEY_a,          spawn,          {.v = launchercmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_A,          spawn,          {.v = pathcmd} },
 	{ MODKEY,                    XKB_KEY_Escape,     spawn,          {.v = menusys} },
   { MODKEY,                    XKB_KEY_n,          spawn,          {.v = menunm} },
 	{ MODKEY,                    XKB_KEY_b,          spawn,          {.v = menubt} },
@@ -179,8 +181,8 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,          pushup,         {0} },
 	{ MODKEY,                    XKB_KEY_h,          setmfact,       {.f = -0.05f} },
 	{ MODKEY,                    XKB_KEY_l,          setmfact,       {.f = +0.05f} },
-	{ MODKEY,                    XKB_KEY_i,          incnmaster,     {.i = +1} },
-	{ MODKEY,                    XKB_KEY_o,          incnmaster,     {.i = -1} },
+	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_k,          incnmaster,     {.i = +1} },
+	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_j,          incnmaster,     {.i = -1} },
   /* client */
 	{ MODKEY,                    XKB_KEY_z,          zoom,           {0} },
 	{ MODKEY,                    XKB_KEY_x,          togglefloating, {0} },
@@ -201,9 +203,9 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
   /* layouts */
 	{ MODKEY,                    XKB_KEY_t,          setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                    XKB_KEY_f,          setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                    XKB_KEY_g,          setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                    XKB_KEY_m,          setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                    XKB_KEY_g,          setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                    XKB_KEY_f,          setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                    XKB_KEY_space,      setlayout,      {0} },
   /* monitors */
 	{ MODKEY,                    XKB_KEY_comma,      focusmon,       {.i = WLR_DIRECTION_LEFT} },
