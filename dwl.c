@@ -1650,6 +1650,32 @@ handlesig(int signo)
 }
 
 void
+handlecursoractivity(void)
+{
+	wl_event_source_timer_update(hide_source, cursor_timeout * 1000);
+
+	if (!cursor_hidden)
+		return;
+
+	cursor_hidden = false;
+
+	if (last_cursor.shape)
+		wlr_cursor_set_xcursor(cursor, cursor_mgr,
+				wlr_cursor_shape_v1_name(last_cursor.shape));
+	else
+		wlr_cursor_set_surface(cursor, last_cursor.surface,
+				last_cursor.hotspot_x, last_cursor.hotspot_y);
+}
+
+int
+hidecursor(void *data)
+{
+	wlr_cursor_unset_image(cursor);
+	cursor_hidden = true;
+	return 1;
+}
+
+void
 incnmaster(const Arg *arg)
 {
 	if (!arg || !selmon)
