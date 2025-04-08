@@ -299,6 +299,8 @@ static void focusstack(const Arg *arg);
 static Client *focustop(Monitor *m);
 static void fullscreennotify(struct wl_listener *listener, void *data);
 static void gpureset(struct wl_listener *listener, void *data);
+static void handlecursoractivity(void);
+static int hidecursor(void *data);
 static void handlesig(int signo);
 static void incnmaster(const Arg *arg);
 static void incgaps(const Arg *arg);
@@ -413,6 +415,14 @@ static struct wlr_pointer_constraint_v1 *active_constraint;
 
 static struct wlr_cursor *cursor;
 static struct wlr_xcursor_manager *cursor_mgr;
+static struct wl_event_source *hide_source;
+static bool cursor_hidden = false;
+static struct {
+	enum wp_cursor_shape_device_v1_shape shape;
+	struct wlr_surface *surface;
+	int hotspot_x;
+	int hotspot_y;
+} last_cursor;
 
 static struct wlr_scene_rect *root_bg;
 static struct wlr_session_lock_manager_v1 *session_lock_mgr;
