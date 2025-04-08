@@ -33,6 +33,7 @@ static const char *const autostart[] = {
         "pipewire", NULL,
         "yambar", NULL,
         "wl-paste", "--watch", "cliphist", "store", NULL,
+        "swaybg", "-m", "tile", "-i", "/home/toby/.src/tiles-and-such/Floral/ret.jpg", NULL,
         NULL /* terminate */
 };
 
