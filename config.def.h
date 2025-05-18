@@ -142,6 +142,7 @@ static const char *pathcmd[]       = { "fuzzel", "--list-executables-in-path", N
 static const char *browsercmd[]    = { "qutebrowser", NULL };
 static const char *browsertwocmd[] = { "firefox", NULL };
 static const char *explorercmd[]   = { "foot", "yazi", NULL };
+static const char *explorertwocmd[]= { "thunar", NULL };
 static const char *lockcmd[]       = { "lock", NULL };
 
 /* Menus */
@@ -170,6 +171,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_w,          spawn,          {.v = browsercmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_W,          spawn,          {.v = browsertwocmd} },
 	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = explorercmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_E,          spawn,          {.v = explorertwocmd} },
   /* menus */
 	{ MODKEY,                    XKB_KEY_a,          spawn,          {.v = launchercmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_A,          spawn,          {.v = pathcmd} },
