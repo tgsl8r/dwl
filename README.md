@@ -19,6 +19,7 @@
 | MOD | `a` | App menu |
 | MOD+Shift | `a` | All bins path menu |
 | MOD | `Ret` | Launch foot |
+| MOD | `t` | Launch tmux in foot |
 | MOD | `w` | launch qutebrowser |
 | MOD+Shift | `w` | Launch Firefox |
 | MOD | `e` | Launch yazi in foot |

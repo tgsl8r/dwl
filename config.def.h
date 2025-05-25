@@ -137,6 +137,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[]       = { "foot", NULL };
+static const char *tmuxcmd[]       = { "foot", "tmux", NULL };
 static const char *launchercmd[]   = { "fuzzel", NULL };
 static const char *pathcmd[]       = { "fuzzel", "--list-executables-in-path", NULL };
 static const char *browsercmd[]    = { "qutebrowser", NULL };
@@ -168,6 +169,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_grave,      spawn,          {.v = lockcmd} },
   /* apps */
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
+	{ MODKEY,                    XKB_KEY_t,          spawn,          {.v = tmuxcmd} },
 	{ MODKEY,                    XKB_KEY_w,          spawn,          {.v = browsercmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_W,          spawn,          {.v = browsertwocmd} },
 	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = explorercmd} },
