@@ -145,6 +145,7 @@ static const char *browsercmd[]    = { "qutebrowser", NULL };
 static const char *browsertwocmd[] = { "firefox", NULL };
 static const char *explorercmd[]   = { "foot", "yazi", NULL };
 static const char *explorertwocmd[]= { "thunar", NULL };
+static const char *calcmd[]        = { "foot", "-T", "calcurse", "calcurse", NULL };
 static const char *lockcmd[]       = { "lock", NULL };
 
 /* Menus */
@@ -175,6 +176,7 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_W,          spawn,          {.v = browsertwocmd} },
 	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = explorercmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_E,          spawn,          {.v = explorertwocmd} },
+	{ MODKEY,                    XKB_KEY_r,          spawn,          {.v = calcmd} },
   /* menus */
 	{ MODKEY,                    XKB_KEY_a,          spawn,          {.v = launchercmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_A,          spawn,          {.v = pathcmd} },
