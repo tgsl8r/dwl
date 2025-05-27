@@ -168,8 +168,8 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_Escape,     quit,           {0} },
 	{ MODKEY,                    XKB_KEY_grave,      spawn,          {.v = lockcmd} },
   /* apps */
-	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
-	{ MODKEY,                    XKB_KEY_t,          spawn,          {.v = tmuxcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          {.v = termcmd} },
+	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = tmuxcmd} },
 	{ MODKEY,                    XKB_KEY_w,          spawn,          {.v = browsercmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_W,          spawn,          {.v = browsertwocmd} },
 	{ MODKEY,                    XKB_KEY_e,          spawn,          {.v = explorercmd} },
