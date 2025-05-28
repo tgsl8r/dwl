@@ -14,21 +14,21 @@
 | MOD | `b` | Bluetooth menu |
 | MOD | `s` | Screenshot menu |
 | MOD | `v` | Clipboard history menu (paste from) |
-| | |
+| | | |
 | | | **Apps** |
 | MOD | `a` | App menu |
 | MOD+Shift | `a` | All bins path menu |
-| MOD | `Ret` | Launch foot |
-| MOD | `t` | Launch tmux in foot |
+| MOD | `Ret` | Launch tmux in foot |
+| MOD+Shift | `Ret` | Launch foot |
 | MOD | `w` | launch qutebrowser |
 | MOD+Shift | `w` | Launch Firefox |
 | MOD | `e` | Launch yazi in foot |
 | MOD+Shift | `e` |  Launch Thunar |
-| | |
+| | | |
 | | | **Windows** |
 | MOD | `j`/`k` | Focus windows up/down stack |
 | MOD+Shift | `j`/`k` | Move windows up/down stack |
-| MOD | `h`/`l` | Increase/decrease master region size | |
+| MOD | `h`/`l` | Increase/decrease master region size |
 | MOD+Ctrl | `j`/`k` | Increase/decrease number of windows in master region |
 | MOD | `q` | Quit selected window |
 | MOD | `z` | Move selected window to master region |
@@ -36,7 +36,7 @@
 | MOD | `c` | Toggle fullscreen on selected window |
 | MOD | Left Click | Drag to move floating window |
 | MOD | Right Click | Drag to resize floating window |
-| | |
+| | | |
 | | | **Tags** |
 | MOD | `Tab` | View all tags |
 | MOD+Ctrl | `Tab` | Apply all tags to selected window |
@@ -44,7 +44,7 @@
 | MOD+Ctrl | `1`-`9` | Toggle tag 1-9 in current view |
 | MOD+Shift | `1`-`9` | Move selected window to tag 1-9 |
 | MOD+Ctrl+Shift | `1`-`9` | Add tag 1-9 to selected window |
-| | |
+| | | |
 | | | **Layouts** |
 | MOD | `t` | Tiled master/stack layout |
 | MOD | `g` | Tiled centered master layout |
@@ -53,10 +53,9 @@
 | MOD | `[`/`]` | Increment/decrement all gaps size |
 | MOD+Shift | `[`/`]` | Increment/decrement inner gaps size |
 | MOD+Ctrl | `[`/`]` | Increment/decrement outer gaps size |
-| | | **Monitors**
+| | | **Monitors** |
 | MOD | `,`/`.` | Move focus across monitors left/right |
 | MOD+Shift | `,`/`.` | Move current tag across monitors left/right |
-
 
 # dwl - dwm for Wayland
 
